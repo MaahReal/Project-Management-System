@@ -1,0 +1,6 @@
+{
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "git.detectSubmodulesLimit": 100,
+    "git.enableCommitSigning": true,
+    "git.postCommitCommand": "push"
+}
