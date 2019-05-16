@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 1997;
 
+app.use('/assets',express.static('assets'));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -16,7 +18,7 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req,res) =>{
-    res.render('main');
+    res.render('home');
 });
 
 let pms = require('./route/pms.js');
