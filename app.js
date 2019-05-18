@@ -21,6 +21,10 @@ app.get('/', (req,res) =>{
     res.render('home');
 });
 
+app.post('/', (req,res) =>{
+    res.render('secSpec',{name: req.body.user}); 
+});
+
 let pms = require('./route/pms.js');
 app.use('/pms', pms);
 
