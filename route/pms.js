@@ -14,8 +14,8 @@ router.get('/secSpec',(req,res) =>{
     res.render("secSpec");
 });
 
-router.get('/pendingProj',(req,res) =>{
-    res.render("pendingProj");
+router.get('/projects',(req,res) =>{
+    res.render("project");
 });
 
 module.exports = router;
