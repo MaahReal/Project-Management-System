@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Project Management System</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- <meta name="description" content="">
+  <meta name="author" content=""> -->
+
+  <title>Client</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="/assets/style/agency.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Project Management System</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/pms/manage">Add Client</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/pms/projects">Projects</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">History</a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-lead-in">Welcome </div>
+          <!-- <div class="intro-heading text-uppercase">Project Management System</div>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Log in</a>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Sign up</a>
+        </div> -->
+      </div>
+    </header>
+  
+   <!-- Bootstrap core JavaScript -->
+   <script src="/assets/vendor/jquery/jquery.min.js"></script>
+   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+   <!-- Plugin JavaScript -->
+   <script src="/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+   <!-- Contact form JavaScript
+   <script src="js/jqBootstrapValidation.js"></script>
+   <script src="js/contact_me.js"></script> -->
+  
+   <!-- Custom scripts for this template -->
+   <script src="/assets/js/agency.min.js"></script>
+  
+    <!-- putol -->
+ <br>
+ <div style="margin-left: 400px;">       
+       <button type="button" class="btn btn-secondary" id="prog" style="margin-top: 1%; margin-left:320px;">See Project Progress</button>
+       
+ </div>
+<div class="container" style="display: none" id="rog">   
+  <br>
+  <Center><p><b>My Project Progress</b></p></Center>  
+  <br>   
+  
+  <div id="main" class= "table-responsive">
+    <table class="table table-dark table-hover">
+  
+      <thead>
+       
+            <tr>
+              <th>PROJECT ID</th>
+              <th>PROJECT NAME</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+      <tbody>        
+          <td>1</td>
+          <td>Wash</td>
+          <td><button   type="button" class="btn btn-info btn-sm;" data-toggle="modal" data-target="#myModal">See details</button></td>
+          <td><button   data-toggle="collapse" data-target="#edit" class="btn btn-info btn-sm; edit">Edit</button></td>
+        </tr>
+  
+      </tbody>
+    </table>
+    <div id="edit" class="collapse">
+    
+    </div>
+
+    <!-- modal dialog
+when button "see details" is clicked  -->
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Project Name here</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table table-dark table-hover">
+            <thead>
+                  <tr>
+                    <th>PROJECT NAME</th>
+                    <th>STATUS</th>
+                    <th>PROGRESS</th>
+                  </tr>
+                </thead>
+            <tbody> 
+                   
+                   <tr>
+                     <td>Wash</td>
+                     <td>Ongoing</td>
+                     <td>O%</td>
+                   </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+      
+    </tbody>
+  </table>
+</div> 
+</body>
+<script>
+// hide and show the div content of the button prog
+$(document).ready(function(){
+    $('#prog').click(function() { 
+      $('#rog').toggle();
+    });
+});
+
+// Modal and edit
+$(document).ready(function(){
+    $(".edit").on("click", function(){
+        $("#edit").html('<p><strong>Update Project Name:</strong></p><input type="text" id="editValue"><button type="button" id="editVal" data-id="'+$(this).data('id')+'">Submit</button>');
+
+    })
+    $(document).on("click", "#editVal", function(){
+       var edit = {_id: $(this).data("id"), name: $("#editValue").val()};
+       $.ajax({
+           type: "POST",
+           url: "/edit",
+           data: edit,
+           success: function(data){
+                alert("done!");
+           }
+       })
+        
+        location.reload();
+        alert("succesfully updated!");
+    });
+  })
+
+
+</script>
+</html>

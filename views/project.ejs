@@ -32,14 +32,14 @@
 
         }
     </style>
-    <!-- <script>
+    <script>
         $(document).ready(function () {
             $("#add").click(function () {
                 $("#ganaba").show();
                 $("#contain").hide();
             })
         });
-    </script> -->
+    </script>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <!-- <tbody>
                     <%for(var i = 0;i<data.length;i++){%>
                     <tr class="table-success" data-id="<%=data[i]._id%>">
                         <td><%=data[i].name %></td>
@@ -70,7 +70,7 @@
                                 <option value="Task31">Task 3</option>
                             </select>
                         </td>
-                        <td><%=data[i].status%></td>
+                        <td><%=data[i].status%></td> -->
                         <td><button data-toggle="modal" data-target="#myModal1" type="button" class="btn btn-primary"
                                 style="margin-top:10px;"> UPDATE PROGRESS</button></td>
                     </tr>
