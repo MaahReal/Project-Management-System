@@ -12,7 +12,7 @@ router.get('/manage', (req, res) =>{
 });
 
 router.get('/project',(req,res) =>{
-    res.render("projects");
+    res.render("project");
 });
 
 //SECRETARY
@@ -25,6 +25,8 @@ router.get('/secSpec',(req,res) =>{
     res.render("secSpec");
 });
 
+router.get('/pendingprojects',(req, res) =>{
+    res.render("pendingProj");
+});
 
-
-module.exports = router;
+module.exports=router;

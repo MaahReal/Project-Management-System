@@ -6,7 +6,7 @@ const path = require('path');
 
 const bodyParser = require('body-parser');
 
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 const session = require('express-session');
 
@@ -64,22 +64,14 @@ app.post('/manage',function(req,res){
     console.log(req.body);
     
     res.render('manage',{name: req.body.firstname});
-})
+});
 
 app.post('/', (req,res) =>{
     var username = req.body.user;
     var password = req.body.pass;
-    // logg.find({username: username, password : password }, (err,result) =>{
-    //     if(!err){
-    //         req.session.loggedin = true;
-    //         if(result[0].usertype === "1"){
-    //             res.render('manage', {name: result[0].username});
-    //         }
-    //     }else{
-    //         console.log(err);
-    //     }
-        
-    // });
+
+
+
    var  Mongo = require('./database.js');
    var con = Mongo.getDb();
    con.collection('User').findOne({"username":username,"password":password},function(err,result){
@@ -98,6 +90,10 @@ app.post('/', (req,res) =>{
             }
    })
 
+});
+
+app.post('/manage', (req, res) =>{
+    
 });
 
 //clientside
