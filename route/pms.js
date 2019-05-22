@@ -8,12 +8,22 @@ router.get('/manager', (req, res) =>{
 });
 
 router.get('/manage', (req, res) =>{
-    res.render("manage")
+    const MongoConnection = require('../database.js');
+    var con = MongoConnection.getDb();
+    con.collection('User').find({"usertype":'2'}).toArray(function(err,result){
+        console.log(result)
+        res.render("manage",{Clients:result});
+    })
+    
 });
 
-router.get('/project',(req,res) =>{
-    res.render("project");
-});
+router.get('/project', (req,res)=>{
+    const MongoConnection = require('../database.js');
+    var con = MongoConnection.getDb();
+    con.collection('Project').find({}).toArray(function(err,result){
+        res.render("project",{Projects:result});
+    })
+})
 
 //SECRETARY
 

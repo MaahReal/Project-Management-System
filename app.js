@@ -14,39 +14,20 @@ const port = process.env.PORT || 1997;
 
 const MongoConnection = require('./database.js');
 
+// const User = ("User",{
+//     lastname: String,
+//     firstname: String
+// });
+
 app.use('/assets',express.static('assets'));
 
+//EXPRESS-SESSION
 app.use(session({
     secret: 'secret',
     resave: true,
     saveUninitialized: true
   }))
 
-// var personSchema  = new mongoose.Schema({
-//     name: String,
-// })
-// var projectSchema  = new mongoose.Schema({	
-//     // name: String,
-//     projectname: String,
-//     task1: String,
-//     task2: String,
-//     task3: String,
-//     // status: String
-// })
-// var loggSchema = new mongoose.Schema({
-//     username: String,
-//     password: String,
-//     usertype: String
-// })
-
-// var person = mongoose.model("crudficollections",personSchema);
-// var project = mongoose.model("proficollections",projectSchema);
-// var logg = mongoose.model("signficollections",loggSchema);/* this db is for the log in side */
-
-
-
-// mongoose.connect("mongodb://localhost:27017/dbfinal",{useNewUrlParser: true});
-// mongoose.connection.on("error",console.error.bind(console,"connection error:"));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -102,6 +83,7 @@ app.post('/addclient', (req,res) =>{
    var con = Mongo.getDb();
    console.log(req.body)
    var toAdd = {
+       fullname:req.body.firstname+" "+req.body.lastname,
        username:req.body.lastname,
        password:'client',
        usertype:'2'
@@ -129,3 +111,15 @@ MongoConnection.connectToServer(function(err,client){
     app.listen(port);
     console.log(`Server ready at port ${port}`);
 })
+
+app.post('/project-input', (req, res) => {
+    var  Mongo = require('./database.js');
+    var con = Mongo.getDb();
+    var toAddproject = {
+        projectname: req.body.projectname,
+        clientname:req.body.clientname
+    }
+    con.collection('Project').insertOne(toAddproject);
+    res.render("/project");
+
+});
