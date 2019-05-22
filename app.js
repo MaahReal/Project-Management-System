@@ -120,6 +120,4 @@ app.post('/project-input', (req, res) => {
         clientname:req.body.clientname
     }
     con.collection('Project').insertOne(toAddproject);
-    res.render("/project");
-
 });

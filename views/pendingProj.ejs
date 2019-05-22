@@ -26,33 +26,34 @@
     <div class="container">
         <h2>Pending Projects</h2><br><br>
         <center>
-            <table class="table table-striped table-sm" style="width:50%">
-        </center>
-        <thead class="thead-dark">
+            <table class="table table-striped table-sm" style="width: 80%">
+
+        <thead class="thead-dark ">
             <tr>
+                <th>Complete Name</th>
                 <th>Project Name</th>
+                <th>Progress</th>
                 <th>Status</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
+            <% Projects.forEach(function(proj){%>
             <tr>
-                <td>gfgg</td>
-                <td>gfff</td>
+                <td><%= proj.clientname %></td>
+                <td><%= proj.projectname %></td>
+                <td></td>
+                <td></td>
+                <td><button href="/pms/sec_History" type="button" class="btn btn-primary" id="vHistory" style="margin-left: 5px;">View History</button></td>
             </tr>
-            <tr>
-                <td>fff</td>
-                <td>fggf</td>
-            </tr>
-            <tr>
-                <td>gf</td>
-                <td>fgf</td>
-            </tr>
+            <%})%>
+            </tbody>
 
-        </tbody>
         </table>
+    </center>
     </div>
 
-    
+
 </body>
 
 </html>
