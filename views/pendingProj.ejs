@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Secretary | View Projects</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -45,6 +46,7 @@
                 <td></td>
                 <td></td>
                 <td><button href="/pms/sec_History" type="button" class="btn btn-primary" id="vHistory" style="margin-left: 5px;">View History</button></td>
+                <!-- <button href="/pms/sec_History" type="button" class="btn btn-primary" id="vHistory" style="margin-left: 5px;">View History</button> -->
             </tr>
             <%})%>
             </tbody>
@@ -53,7 +55,13 @@
     </center>
     </div>
 
-
+<script>
+    $(document).ready(function(){
+        $('#vHistory').click(function(){
+            window.location.href = "/pms/sec_History";
+        })
+    });
+</script>
 </body>
 
 </html>

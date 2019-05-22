@@ -14,12 +14,6 @@
                         <th>Complete Name</th>
                         <th>Project Name</th>
                         <th>Status</th>
-                        <!-- <th>Total Tasks</th> -->
-                        
-                        <!-- <th>Task 2</th>
-                        <th>Task 3</th>
-                        <th>Status</th> -->
-                        <!-- <th>Progress</th> -->
                       </tr>
                     </thead>
                     <tbody>
@@ -27,7 +21,7 @@
                         <tr>
                             <td><%= proj.clientname %></td>
                             <td><%= proj.projectname %></td>
-                            <td></td>
+                            <td><%= proj.status %></td>
                             <!-- <td></td>
                             <td></td>
                             
@@ -39,9 +33,6 @@
                         <td><button data-toggle="modal" data-target="#myModal1" type="button" class="btn btn-primary"
                           style="margin-left: 5px;">ADD TASK</button></td>
                       </tr> -->
-                        
-                    
-                    
                   </tbody>
           
                 </table>

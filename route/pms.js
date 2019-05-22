@@ -23,7 +23,7 @@ router.get('/project', (req,res)=>{
     con.collection('Project').find({}).toArray(function(err,result){
         res.render("project",{Projects:result});
     })
-})
+});
 
 //SECRETARY
 
@@ -34,7 +34,7 @@ router.get('/project', (req,res)=>{
 router.get('/secSpec',(req,res) =>{
     res.render("secSpec");
 });
-
+//pending project
 router.get('/pendingProj', (req,res)=>{
     const MongoConnection = require('../database.js');
     var con = MongoConnection.getDb();
@@ -50,12 +50,22 @@ router.get('/history', (req,res)=>{
     con.collection('Project').find({}).toArray(function(err,result){
         res.render("sec_History",{Projects:result});
     })
-})
-
-
-
-router.get('/history',(req, res) =>{
-    res.render("sec_History");
 });
+
+//client
+
+router.get('/client', (req,res) =>{
+    const MongoConnection = require('../database.js');
+    var con = MongoConnection.getDb();
+    con.collection('Project').find({}).toArray(function(err,result){
+        res.render("client",{Projects:result});
+    })
+});
+
+
+
+// router.get('/history',(req, res) =>{
+//     res.render("sec_History");
+// });
 
 module.exports=router;

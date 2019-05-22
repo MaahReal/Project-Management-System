@@ -40,6 +40,10 @@ app.get('/', (req,res) =>{
     res.render('home');
 });
 
+app.get('/pms/sec_History', (req, res) => {
+    res.render('sec_History');
+});
+
 app.post('/manage',function(req,res){
     req.body;
     console.log(req.body);
